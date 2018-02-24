@@ -1,9 +1,9 @@
 var enabledForSite = true;
 
 $(function () {
-    $('#position').change(function () {
-        chrome.storage.sync.set({ position: $('#position').val() })
-    })
+    // $('#position').change(function () {
+    //     chrome.storage.sync.set({ position: $('#position').val() })
+    // })
 
     $('#site-enabled').change(function () {
         chrome.tabs.getSelected(null, function (tab) {
@@ -18,13 +18,13 @@ $(function () {
         chrome.storage.sync.set({ enabled: $('#enabled').prop('checked') });
     })
 
-    chrome.storage.sync.get("position", function (value) {
-        if (value != null) {
-            $('#position').val(value.position);
-        } else {
-            chrome.storage.sync.set({ position: 'top-right' })
-        }
-    });
+    // chrome.storage.sync.get("position", function (value) {
+    //     if (value != null) {
+    //         $('#position').val(value.position);
+    //     } else {
+    //         chrome.storage.sync.set({ position: 'top-right' })
+    //     }
+    // });
 
     chrome.tabs.getSelected(null, function (tab) {
         var url = new URL(tab.url)
@@ -43,11 +43,11 @@ $(function () {
         }
     })
 
-    chrome.storage.sync.get("position", function (value) {
-        if (value.position != null) {
-            $('#position').val(value.position);
-        } else {
-            chrome.storage.sync.set({ position: 'top-right' })
-        }
-    });
+    // chrome.storage.sync.get("position", function (value) {
+    //     if (value.position != null) {
+    //         $('#position').val(value.position);
+    //     } else {
+    //         chrome.storage.sync.set({ position: 'top-right' })
+    //     }
+    // });
 })

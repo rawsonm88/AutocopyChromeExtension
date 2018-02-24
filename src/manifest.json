@@ -5,33 +5,30 @@
   "default_locale": "en",
   "description": "A simple extension to enable automatic copying of text to the clipboard when text is selected on a webpage.",
   "icons":{
-    "128": "copy.png"
+    "128": "assets/icons/copy.png"
   },
   "browser_action": {
-    "default_icon": "copy_38.png",
-    "default_popup": "popup.html"
+    "default_icon": "assets/icons/copy_38.png",
+    "default_popup": "html/popup.html"
   },
   "background": {
     "scripts": [
-      "eventpage.js"
+      "scripts/background/eventpage.js"
     ],
     "persistent": true
   },
   "content_scripts": [
     {
-      "run_at": "document_end",
+      "run_at": "document_start",
       "matches": [
         "<all_urls>"
       ],
       "js": [
-        "jquery.js",
-        "jquery.color-2.1.2.min.js",
-        "content.js"
+        "scripts/vendor/jquery-ui.js",
+        "scripts/vendor/jquery.color-2.1.2.min.js",
+        "scripts/content/content.js"
       ]
     }
-  ],
-  "web_accessible_resources": [
-    "greenlight.svg"
   ],
   "permissions": [
     "storage",

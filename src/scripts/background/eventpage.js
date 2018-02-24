@@ -18,13 +18,13 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
             type: 'basic',
             title: chrome.i18n.getMessage('copiedToClipboard'),
             message: message.text,
-            iconUrl: chrome.extension.getURL('copy.png')
+            iconUrl: chrome.extension.getURL('assets/icons/copy.png')
 		})
     }else if(message.command && message.command == 'updateIcon'){
         var iconPath;
 
-        if(message.enabled) iconPath = chrome.extension.getURL('copy-enabled_38.png');
-        if(!message.enabled) iconPath = chrome.extension.getURL('copy_38.png');
+        if(message.enabled) iconPath = chrome.extension.getURL('assets/icons/copy-enabled_38.png');
+        if(!message.enabled) iconPath = chrome.extension.getURL('assets/icons/copy_38.png');
         
         chrome.browserAction.setIcon({
             path: iconPath,
