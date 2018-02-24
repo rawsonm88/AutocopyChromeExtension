@@ -1,0 +1,10 @@
+{
+    "extName":{
+        "message": "Autocopy",
+        "description": "Extension name"
+    },
+    "copiedToClipboard":{
+        "message": "Copied to clipboard",
+        "description": "Title of notification window - when text is copied"
+    }
+}

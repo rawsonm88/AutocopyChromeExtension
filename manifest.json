@@ -1,13 +1,42 @@
 {
   "manifest_version": 2,
-  "name": "Autocopy",
+  "name": "Auto-copy",
   "version": "0.1",
-  "content_scripts": [
-  {
-    "matches": [
-      "https://learn2.open.ac.uk/mod/oucontent/view.php*"
+  "default_locale": "en",
+  "description": "A simple extension to enable automatic copying of text to the clipboard when text is selected on a webpage.",
+  "icons":{
+    "128": "copy.png"
+  },
+  "browser_action": {
+    "default_icon": "copy_38.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "eventpage.js"
     ],
-    "js": ["jquery-3.3.1.min.js", "content.js"]
-  }],
-  "web_accessible_resources": ["greenlight.jpg"]
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "jquery.js",
+        "jquery.color-2.1.2.min.js",
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "greenlight.svg"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "notifications"
+  ]
 }
